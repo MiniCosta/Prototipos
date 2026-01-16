@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACTTUS | Soluções para Advogados</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* RESET E VARIÁVEIS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; /* Fonte pesada e moderna */
+        }
+
+        :root {
+            --bg-dark: #161F1E;
+            --black: #000000;
+            --white: #FFFFFF;
+            --orange: #FF5500; /* Laranja vibrante para contraste */
+            --gray-placeholder: #2C3534;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--white);
+            text-transform: uppercase; /* Diretriz: Texto em Uppercase */
+            line-height: 1.4;
+            font-weight: 700; /* Texto mais pesado/bold */
+        }
+
+        /* UTILITÁRIOS */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-orange {
+            color: var(--orange);
+            font-weight: 800; /* Texto ainda mais pesado para destaque */
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--orange);
+            color: var(--white);
+            padding: 15px 40px;
+            text-decoration: none;
+            font-size: 16px;
+            letter-spacing: 1px;
+            border: 2px solid var(--orange);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: var(--white);
+            z-index: -1;
+            transition: left 0.3s ease;
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--orange);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 85, 0, 0.3);
+        }
+
+        /* HEADER */
+        header {
+            background-color: var(--black);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px; /* Ajuste conforme necessário */
+            width: auto;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--orange);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 160px 0 100px 0;
+            background-color: var(--bg-dark);
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            font-weight: 400;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .image-placeholder {
+            background-color: var(--gray-placeholder);
+            width: 100%;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #444;
+            color: #666;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .image-placeholder:hover {
+            border-color: var(--orange);
+            box-shadow: 0 10px 30px rgba(255, 85, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* SEÇÃO PROBLEMA/SOLUÇÃO */
+        .features {
+            background-color: var(--white);
+            color: var(--black);
+            padding: 100px 0;
+        }
+
+        .features h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .card {
+            border: 1px solid #eee;
+            padding: 40px;
+            background: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--orange);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--bg-dark);
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* SEÇÃO SOBRE/METODOLOGIA */
+        .about {
+            background-color: var(--black);
+            padding: 100px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        .about p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+        /* CTA FINAL */
+        .cta {
+            background-color: var(--bg-dark);
+            padding: 120px 0;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        .cta h2 {
+            font-size: 42px;
+            margin-bottom: 30px;
+        }
+
+        /* SEÇÃO DE CONTATO */
+        .contact-section {
+            background-color: var(--bg-dark);
+            padding: 80px 0;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        .contact-section h3 {
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background-color: var(--orange);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50%;
+            font-size: 36px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--white);
+            color: var(--orange);
+            transform: scale(1.15) rotateZ(5deg);
+            box-shadow: 0 15px 30px rgba(255, 85, 0, 0.4);
+        }
+
+        .hook {
+            background-color: rgba(255, 85, 0, 0.1);
+            border-left: 4px solid var(--orange);
+            padding: 20px;
+            margin: 30px 0;
+            text-align: left;
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        /* SEÇÃO DE TIME */
+        .team {
+            background-color: var(--white);
+            color: var(--black);
+            padding: 100px 0;
+        }
+
+        .team h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-member {
+            text-align: center;
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--orange);
+        }
+
+        .team-member-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: var(--orange);
+            margin: 0 auto 20px;
+            object-fit: cover;
+            border: 4px solid var(--orange);
+        }
+
+        .team-member h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--bg-dark);
+        }
+
+        .team-member-role {
+            font-size: 14px;
+            color: var(--orange);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .team-member-education {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .team-member p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* SEÇÃO DE FAQ */
+        .faq {
+            background-color: var(--bg-dark);
+            padding: 100px 0;
+            border-top: 1px solid #333;
+        }
+
+        .faq h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--white);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: rgba(255, 85, 0, 0.05);
+            border-left: 4px solid var(--orange);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            background-color: rgba(255, 85, 0, 0.1);
+            border-left-color: var(--orange);
+        }
+
+        .faq-item.active {
+            background-color: rgba(255, 85, 0, 0.15);
+        }
+
+        .faq-question {
+            font-size: 18px;
+            color: var(--white);
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            font-size: 14px;
+            color: #ccc;
+            margin-top: 15px;
+            line-height: 1.6;
+            display: none;
+            font-weight: 400;
+            animation: slideDown 0.4s ease-out forwards;
+            text-transform: none;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+                max-height: 0;
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                max-height: 500px;
+            }
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+            animation: slideDown 0.4s ease-out forwards;
+        }
+
+        .faq-icon {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .hook {
+            background-color: rgba(255, 85, 0, 0.1);
+            border-left: 4px solid var(--orange);
+            padding: 20px;
+            margin: 30px 0;
+            text-align: left;
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        /* SEÇÃO DE FEEDBACK/TESTIMONIALS */
+        .testimonials {
+            background-color: var(--black);
+            padding: 100px 0;
+            border-top: 1px solid #333;
+            overflow: hidden;
+        }
+
+        .testimonials h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--white);
+        }
+
+        .testimonials-slider {
+            display: flex;
+            gap: 30px;
+            animation: slideLeft 50s linear infinite;
+            width: fit-content;
+        }
+
+        @keyframes slideLeft {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .testimonial-card {
+            background-color: rgba(255, 85, 0, 0.1);
+            border: 1px solid rgba(255, 85, 0, 0.3);
+            padding: 40px 30px;
+            border-radius: 8px;
+            min-width: 280px;
+            width: 280px;
+            height: 420px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--orange);
+            margin-bottom: 20px;
+            object-fit: cover;
+            border: 3px solid var(--orange);
+        }
+
+        .testimonial-card p {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author {
+            font-weight: 800;
+            color: var(--orange);
+            font-size: 12px;
+            margin-top: auto;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--black);
+            padding: 50px 0;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #222;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            .hero-grid, .features .cards-grid, .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero-text h1 {
+                font-size: 32px;
+            }
+
+            .image-placeholder {
+                height: 300px;
+            }
+            
+            .nav-links {
+                display: none; /* Simplificação para mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="assets/acttus logo.jpg" alt="ACTTUS LOGO">
+            </div>
+            <nav class="nav-links">
+                <a href="#solucoes">SOLUÇÕES</a>
+                <a href="#metodo">MÉTODO</a>
+                <a href="#team">TIME</a>
+                <a href="#faq">FAQ</a>
+                <a href="#testimonials">DEPOIMENTOS</a>
+                <a href="#conecte" style="color: var(--orange);">CONECTAR</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>
+                    Trabalha muito, mas não sabe quanto vai <span class="text-orange">faturar no mês que vem?</span>
+                </h1>
+                <p>
+                    As empresas tradicionais de marketing não entendem como um escritório de advocacia funciona de verdade.<br> Marketing orgânico para educar o mercado, tráfego pago como acelerador e um projeto comercial que gera previsibilidade nas suas receitas. Isso é <span class="text-orange">ACTTUS</span>.
+                </p>
+                <a href="#conecte" class="btn">QUERO ESCALAR MEU ESCRITÓRIO</a>
+            </div>
+            <div class="hero-image">
+                <div class="image-placeholder">
+                    [IMAGEM HERO]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solucoes" class="features">
+        <div class="container">
+            <h2>Os Três Pilares do Crescimento <span class="text-orange">Previsível</span></h2>
+            <p style="text-align: center; color: #666; margin-bottom: 60px; font-size: 16px;">
+                <strong>O Problema:</strong> Um ciclo de venda totalmente diferente, decisão do cliente baseada em confiança e restrições éticas que agências tradicionais não compreendem.
+            </p>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Quem o escritório <span class="text-orange">quer atrair?</span></h3>
+                    <p>Marketing orgânico educacional que qualifica o cliente certo desde o primeiro contato, evitando atrair curiosos e geradores de desperdício de tempo. Cada dia é um novo ciclo de venda.</p>
+                </div>
+                <div class="card">
+                    <h3>Qual problema <span class="text-orange">você resolve?</span></h3>
+                    <p>Tráfego pago como um acelerador inteligente que posiciona sua solução exatamente no momento em que o cliente potencial mais precisa dela. Decisão baseada em confiança.</p>
+                </div>
+                <div class="card">
+                    <h3>Por que escolher <span class="text-orange">você?</span></h3>
+                    <p>Um projeto comercial estruturado que transforma seu faturamento de imprevisível para previsível. Respeitando as restrições éticas da profissão, sempre.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="metodo" class="about">
+        <div class="container about-grid">
+            <div class="about-text">
+                <h2>Por que <span class="text-orange">ACTTUS?</span></h2>
+                <p>
+                    Agências tradicionais não entendem advocacia. Nós sim. Estruturamos crescimento real através de uma abordagem que respeita as particularidades da profissão.
+                </p>
+                <a href="#conecte" class="btn">CONHEÇA NOSSO MÉTODO</a>
+            </div>
+            <div class="about-image">
+                 <div class="image-placeholder" style="height: 400px;">
+                    [IMAGEM: EQUIPE OU GRÁFICOS DE RESULTADO]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="team">
+        <div class="container">
+            <h2>Conheça o <span class="text-orange">Time ACTTUS</span></h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="assets/matheus.jpg" alt="Matheus" class="team-member-avatar">
+                    <h3>Matheus</h3>
+                    <div class="team-member-role">Estratégia & Marketing</div>
+                    <div class="team-member-education">Direito - UNI-RN</div>
+                    <p>Especialista em estratégia de marketing jurídico. Estrutura campanhas educacionais que atraem clientes qualificados.</p>
+                </div>
+                <div class="team-member">
+                    <img src="assets/pedro.jpg" alt="Pedro" class="team-member-avatar">
+                    <h3>Pedro</h3>
+                    <div class="team-member-role">Vendas & Processos</div>
+                    <div class="team-member-education">Direito - UNI-RN</div>
+                    <p>Especialista em processos comerciais e consultoria de vendas. Implementa estruturas que geram previsibilidade nas receitas.</p>
+                </div>
+                <div class="team-member">
+                    <img src="assets/luiz.jpg" alt="Luiz" class="team-member-avatar">
+                    <h3>Luiz</h3>
+                    <div class="team-member-role">Closer Comercial</div>
+                    <div class="team-member-education">Direito - UFRN</div>
+                    <p>Especialista em fechamento de vendas e relacionamento com clientes. Converte oportunidades em contratos e resultados.</p>
+                </div>
+                <div class="team-member">
+                    <img src="assets/sayan.jpg" alt="Sayan" class="team-member-avatar">
+                    <h3>Sayan</h3>
+                    <div class="team-member-role">Operações & Crescimento</div>
+                    <div class="team-member-education">Direito - UNI-RN</div>
+                    <p>Especialista em operações e escalabilidade. Garante a execução flawless de todas as estratégias implementadas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2>Perguntas <span class="text-orange">Frequentes</span></h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Como vocês respeitam as restrições éticas da OAB?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Utilizamos exclusivamente marketing orgânico educacional e tráfego pago ético. Nosso diferencial é entender profundamente as regras da OAB e criar estratégias que as respeitam completamente, gerando resultados sustentáveis.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quanto tempo leva para ver resultados?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        O marketing orgânico começa a gerar resultados entre 60 a 90 dias. O tráfego pago pode trazer leads imediatos. Nosso projeto comercial estruturado geralmente mostra impacto significativo entre 4 a 6 meses.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Como é feito o atendimento?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Iniciamos com uma consultoria estratégica gratuita para entender seu escritório, seus objetivos e desafios. Depois, propomos uma solução personalizada com investimento e resultados esperados.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Vocês trabalham com qual tipo de área de direito?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Trabalhamos com todas as áreas: Família, Corporativo, Trabalhista, Imobiliário, Penal, Tributário e outras. Nossa metodologia é flexível e se adapta à realidade de qualquer especialidade.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Qual o investimento necessário?</span>
+                        <span class="faq-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Cada projeto é customizado. Temos desde pacotes iniciais para pequenos escritórios até estruturas completas para grupos maiores. Todos têm ROI comprovado. Converse conosco para saber qual se encaixa melhor.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="cta">
+        <div class="container">
+            <h2>Cansado de depender apenas de <span class="text-orange">indicações espontâneas?</span></h2>
+            <p style="margin-bottom: 30px; color: #ccc;">Estruture um crescimento previsível e controle seu faturamento mês a mês.</p>
+            <a href="#conecte" class="btn">AGENDAR CONSULTORIA AGORA</a>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>Veja o que <span class="text-orange">nossos clientes</span> dizem</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <img src="https://i.pravatar.cc/80?img=1" alt="Carlos R." class="testimonial-avatar">
+                    <p>"A ACTTUS transformou completamente a forma como vejo o crescimento do meu escritório. Passamos de indicações esporádicas a um pipeline previsível."</p>
+                    <div class="testimonial-author">Dr. Carlos R.</div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://i.pravatar.cc/80?img=5" alt="Juliana P." class="testimonial-avatar">
+                    <p>"Não sabia como aplicar marketing em advocacia sem violar a ética. A ACTTUS mostrou o caminho certo com estratégia orgânica educacional."</p>
+                    <div class="testimonial-author">Dra. Juliana P.</div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://i.pravatar.cc/80?img=3" alt="Marcos S." class="testimonial-avatar">
+                    <p>"Em 6 meses, aumentamos nossa carteira de clientes significativamente. A estrutura comercial que implementaram realmente funciona."</p>
+                    <div class="testimonial-author">Dr. Marcos S.</div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://i.pravatar.cc/80?img=9" alt="Patricia M." class="testimonial-avatar">
+                    <p>"Finalmente um time que entende a realidade da advocacia. Não tratam nosso escritório como uma agência de e-commerce qualquer."</p>
+                    <div class="testimonial-author">Dra. Patricia M.</div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://i.pravatar.cc/80?img=7" alt="Fernando B." class="testimonial-avatar">
+                    <p>"A ACTTUS surpreendeu com resultados. Estratégia e execução impecáveis, sempre alinhadas com as restrições éticas da profissão."</p>
+                    <div class="testimonial-author">Dr. Fernando B.</div>
+                </div>
+                <!-- Duplica os cards para efeito contínuo de loop -->
+                <div class="testimonial-card">
+                    <img src="https://i.pravatar.cc/80?img=1" alt="Carlos R." class="testimonial-avatar">
+                    <p>"A ACTTUS transformou completamente a forma como vejo o crescimento do meu escritório. Passamos de indicações esporádicas a um pipeline previsível."</p>
+                    <div class="testimonial-author">Dr. Carlos R.</div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://i.pravatar.cc/80?img=5" alt="Juliana P." class="testimonial-avatar">
+                    <p>"Não sabia como aplicar marketing em advocacia sem violar a ética. A ACTTUS mostrou o caminho certo com estratégia orgânica educacional."</p>
+                    <div class="testimonial-author">Dra. Juliana P.</div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://i.pravatar.cc/80?img=3" alt="Marcos S." class="testimonial-avatar">
+                    <p>"Em 6 meses, aumentamos nossa carteira de clientes significativamente. A estrutura comercial que implementaram realmente funciona."</p>
+                    <div class="testimonial-author">Dr. Marcos S.</div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://i.pravatar.cc/80?img=9" alt="Patricia M." class="testimonial-avatar">
+                    <p>"Finalmente um time que entende a realidade da advocacia. Não tratam nosso escritório como uma agência de e-commerce qualquer."</p>
+                    <div class="testimonial-author">Dra. Patricia M.</div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://i.pravatar.cc/80?img=7" alt="Fernando B." class="testimonial-avatar">
+                    <p>"A ACTTUS surpreendeu com resultados. Estratégia e execução impecáveis, sempre alinhadas com as restrições éticas da profissão."</p>
+                    <div class="testimonial-author">Dr. Fernando B.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="conecte" class="contact-section">
+        <div class="container">
+            <h3>Conecte-se com a <span class="text-orange">ACTTUS</span></h3>
+            <p style="margin-bottom: 40px; color: #ccc; font-size: 16px;">
+                Tem dúvidas? Fale conosco via WhatsApp ou Instagram
+            </p>
+            <div class="social-links">
+                <a href="https://wa.me/55" title="Enviar mensagem no WhatsApp" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://instagram.com" title="Seguir no Instagram" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="logo" style="margin-bottom: 20px; opacity: 0.7;">
+                <img src="assets/acttus logo.jpg" alt="ACTTUS LOGO" style="height: 100px;">
+            </div>
+            <p>&copy; 2026 ACTTUS. TODOS OS DIREITOS RESERVADOS.</p>
+            <p style="margin-top: 10px;">MARKETING JURÍDICO & VENDAS</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', function() {
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
