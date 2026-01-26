@@ -17,6 +17,9 @@
             <a href="#" class="logo">
                 <img src="assets/acttus logo.jpg" alt="ACTTUS LOGO">
             </a>
+                <button class="mobile-menu-toggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <nav class="nav-links">
                 <a href="#solucoes">SOLUÇÕES</a>
                 <a href="#metodo">MÉTODO</a>
@@ -54,17 +57,53 @@
                 <strong>O Problema:</strong> Ciclo de venda único, decisão baseada em confiança e restrições éticas.
             </p>
             <div class="cards-grid">
-                <div class="card">
-                    <h3>Quem o escritório <span class="text-orange">quer atrair?</span></h3>
-                    <p>Marketing orgânico que qualifica clientes desde o primeiro contato.</p>
+                <div class="card-flip-container">
+                    <div class="card-flip" data-flipped="false">
+                        <div class="card card-front">
+                            <h3>Quem o escritório <span class="text-orange">quer atrair?</span></h3>
+                            <div class="card-flip-trigger">
+                                <img src="assets/acttus logo.jpg" alt="Ver resposta">
+                            </div>
+                        </div>
+                        <div class="card card-back">
+                            <p>Marketing orgânico que qualifica clientes desde o primeiro contato.</p>
+                            <div class="card-flip-trigger">
+                                <img src="assets/acttus logo.jpg" alt="Voltar">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Qual problema <span class="text-orange">você resolve?</span></h3>
-                    <p>Tráfego pago inteligente posicionando sua solução no momento certo.</p>
+                <div class="card-flip-container">
+                    <div class="card-flip" data-flipped="false">
+                        <div class="card card-front">
+                            <h3>Qual problema <span class="text-orange">você resolve?</span></h3>
+                            <div class="card-flip-trigger">
+                                <img src="assets/acttus logo.jpg" alt="Ver resposta">
+                            </div>
+                        </div>
+                        <div class="card card-back">
+                            <p>Tráfego pago inteligente posicionando sua solução no momento certo.</p>
+                            <div class="card-flip-trigger">
+                                <img src="assets/acttus logo.jpg" alt="Voltar">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Por que escolher <span class="text-orange">você?</span></h3>
-                    <p>Projeto comercial que transforma faturamento imprevisível em previsível.</p>
+                <div class="card-flip-container">
+                    <div class="card-flip" data-flipped="false">
+                        <div class="card card-front">
+                            <h3>Por que escolher <span class="text-orange">você?</span></h3>
+                            <div class="card-flip-trigger">
+                                <img src="assets/acttus logo.jpg" alt="Ver resposta">
+                            </div>
+                        </div>
+                        <div class="card card-back">
+                            <p>Projeto comercial que transforma faturamento imprevisível em previsível.</p>
+                            <div class="card-flip-trigger">
+                                <img src="assets/acttus logo.jpg" alt="Voltar">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -175,7 +214,7 @@
     <section id="contato" class="cta">
         <div class="container">
             <h2>Cansado de depender apenas de <span class="text-orange">indicações espontâneas?</span></h2>
-            <p style="margin-bottom: 30px; color: #ccc;">Estruture crescimento previsível para seu escritório.</p>
+            <p style="margin-bottom: 30px; color: #999;">Estruture crescimento previsível para seu escritório.</p>
             <a href="#conecte" class="btn">AGENDAR CONSULTORIA AGORA</a>
         </div>
     </section>
@@ -267,6 +306,68 @@
     </footer>
 
     <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const navLinkItems = document.querySelectorAll('.nav-links a');
+        const logoLink = document.querySelector('.logo');
+        
+        function closeMenu() {
+            navLinks.classList.remove('active');
+            const icon = mobileMenuToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+        
+        mobileMenuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close menu when clicking on a link
+        navLinkItems.forEach(link => {
+            link.addEventListener('click', function() {
+                closeMenu();
+            });
+        });
+        
+        // Close menu when clicking on logo
+        logoLink.addEventListener('click', function() {
+            closeMenu();
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                closeMenu();
+            }
+        });
+        
+        // Prevent menu from closing when clicking inside it
+        navLinks.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        // Card Flip
+        const cardFlips = document.querySelectorAll('.card-flip');
+        cardFlips.forEach(flip => {
+            const triggers = flip.querySelectorAll('.card-flip-trigger');
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function() {
+                    const isFlipped = flip.getAttribute('data-flipped') === 'true';
+                    flip.setAttribute('data-flipped', !isFlipped);
+                });
+            });
+        });
+
         // FAQ Accordion
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
