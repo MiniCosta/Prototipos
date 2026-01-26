@@ -36,8 +36,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload PHT.co folder
-          path: 'PHT.co'
+          # Upload entire repository (index.html + PHT.co + Acttus folders)
+          path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
