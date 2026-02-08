@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="be Cotton Loja - Compre Pijamas Premium e Loungewear de Luxo">
+    <title>Loja | be Cotton</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-loja.css">
+</head>
+<body class="loja-page">
+    <!-- Header -->
+    <header class="header scrolled">
+        <nav class="nav container nav-loja">
+            <a href="index.html" class="btn-back">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                <span>Voltar</span>
+            </a>
+            <button class="btn-icon" id="cart-btn" onclick="toggleCart()">
+                🛒 <span class="cart-count">0</span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Shop Header -->
+    <section class="shop-hero">
+        <div class="container">
+            <img src="assets/logo.png" alt="be Cotton Logo" class="logo">
+            <h1>Loja be Cotton</h1>
+            <p>Peças exclusivas de loungewear premium com conforto e sofisticação</p>
+        </div>
+    </section>
+
+    <!-- Shop Content -->
+    <section class="shop-section">
+        <div class="container">
+            <div class="shop-layout">
+                <!-- Filters Sidebar -->
+                <aside class="shop-filters">
+                    <div class="filters-header">
+                        <h2 class="filters-title">Filtros</h2>
+                        <button class="filters-toggle" onclick="toggleFilters()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="filters-content">
+                        <div class="filter-group">
+                            <h3>Categorias</h3>
+                            <label class="filter-option">
+                                <input type="checkbox" value="pijamas" checked> Pijamas
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="robes" checked> Robes
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="conjuntos" checked> Conjuntos
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="acessorios" checked> Acessórios
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="pantufa" checked> Pantufas
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="necessaire" checked> Necessaire
+                            </label>
+                        </div>
+
+                        <div class="filter-group">
+                            <h3>Tamanho</h3>
+                            <label class="filter-option">
+                                <input type="checkbox" value="p" checked> P
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="m" checked> M
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="g" checked> G
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="gg" checked> GG
+                            </label>
+                        </div>
+
+                        <div class="filter-group">
+                            <h3>Preço</h3>
+                            <label class="filter-option">
+                                <input type="checkbox" value="0-200" checked> Até R$ 200
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="200-400" checked> R$ 200 - R$ 400
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="400-600" checked> R$ 400 - R$ 600
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="600+" checked> Acima de R$ 600
+                            </label>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Products Grid -->
+                <div class="shop-products">
+                    <div class="shop-header-bar">
+                        <p class="results-count">Mostrando <strong>8 produtos</strong></p>
+                        <select class="sort-select">
+                            <option value="featured">Destaque</option>
+                            <option value="price-asc">Menor Preço</option>
+                            <option value="price-desc">Maior Preço</option>
+                            <option value="name">Nome A-Z</option>
+                        </select>
+                    </div>
+
+                    <div class="products-grid">
+                        <!-- Product 1 -->
+                        <div class="product-card" data-category="pijamas" data-price="450">
+                            <div class="product-image">
+                                <img src="assets/pijama1.jpg" alt="Pijama Signature">
+                                <button class="btn-add-cart" onclick="addToCart(1)">Adicionar ao Carrinho</button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Pijama Signature</h3>
+                                <p class="product-category">Pijamas</p>
+                                <p class="product-price">R$ 99,99</p>
+                                <div class="product-rating">
+                                    ⭐⭐⭐⭐⭐ <span>(48)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 2 -->
+                        <div class="product-card" data-category="pijamas" data-price="520">
+                            <div class="product-image">
+                                <img src="assets/pijama2.jpg" alt="Pijama Supreme">
+                                <button class="btn-add-cart" onclick="addToCart(2)">Adicionar ao Carrinho</button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Pijama Supreme</h3>
+                                <p class="product-category">Pijamas</p>
+                                <p class="product-price">R$ 99,99</p>
+                                <div class="product-rating">
+                                    ⭐⭐⭐⭐⭐ <span>(62)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 3 -->
+                        <div class="product-card" data-category="pijamas" data-price="380">
+                            <div class="product-image">
+                                <img src="assets/pijama3.jpg" alt="Pijama Luxo">
+                                <button class="btn-add-cart" onclick="addToCart(3)">Adicionar ao Carrinho</button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Pijama Luxo</h3>
+                                <p class="product-category">Pijamas</p>
+                                <p class="product-price">R$ 99,99</p>
+                                <div class="product-rating">
+                                    ⭐⭐⭐⭐⭐ <span>(35)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 4 -->
+                        <div class="product-card" data-category="pijamas" data-price="495">
+                            <div class="product-image">
+                                <img src="assets/pijama4.jpg" alt="Pijama Elegance">
+                                <button class="btn-add-cart" onclick="addToCart(4)">Adicionar ao Carrinho</button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Pijama Elegance</h3>
+                                <p class="product-category">Pijamas</p>
+                                <p class="product-price">R$ 99,99</p>
+                                <div class="product-rating">
+                                    ⭐⭐⭐⭐⭐ <span>(41)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 5 -->
+                        <div class="product-card" data-category="pijamas" data-price="560">
+                            <div class="product-image">
+                                <img src="assets/pijama5.jpg" alt="Pijama Premium">
+                                <button class="btn-add-cart" onclick="addToCart(5)">Adicionar ao Carrinho</button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Pijama Premium</h3>
+                                <p class="product-category">Pijamas</p>
+                                <p class="product-price">R$ 99,99</p>
+                                <div class="product-rating">
+                                    ⭐⭐⭐⭐⭐ <span>(57)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 6 -->
+                        <div class="product-card" data-category="robes" data-price="680">
+                            <div class="product-image">
+                                <img src="assets/imagem1.jpeg" alt="Robe Deluxe">
+                                <button class="btn-add-cart" onclick="addToCart(6)">Adicionar ao Carrinho</button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Robe Deluxe</h3>
+                                <p class="product-category">Robes</p>
+                                <p class="product-price">R$ 99,99</p>
+                                <div class="product-rating">
+                                    ⭐⭐⭐⭐⭐ <span>(29)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 7 -->
+                        <div class="product-card" data-category="acessorios" data-price="180">
+                            <div class="product-image">
+                                <img src="assets/imagem2.jpeg" alt="Pantufas Premium">
+                                <button class="btn-add-cart" onclick="addToCart(7)">Adicionar ao Carrinho</button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Pantufas Premium</h3>
+                                <p class="product-category">Acessórios</p>
+                                <p class="product-price">R$ 99,99</p>
+                                <div class="product-rating">
+                                    ⭐⭐⭐⭐⭐ <span>(74)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 8 -->
+                        <div class="product-card" data-category="conjuntos" data-price="890">
+                            <div class="product-image">
+                                <img src="assets/pijama1.jpg" alt="Conjunto Completo Premium">
+                                <button class="btn-add-cart" onclick="addToCart(8)">Adicionar ao Carrinho</button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Conjunto Completo Premium</h3>
+                                <p class="product-category">Conjuntos</p>
+                                <p class="product-price">R$ 99,99</p>
+                                <div class="product-rating">
+                                    ⭐⭐⭐⭐⭐ <span>(33)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 9 -->
+                        <div class="product-card" data-category="necessaire" data-price="150">
+                            <div class="product-image">
+                                <img src="assets/imagem2.jpeg" alt="Necessaire de Viagem">
+                                <button class="btn-add-cart" onclick="addToCart(9)">Adicionar ao Carrinho</button>
+                            </div>
+                            <div class="product-info">
+                                <h3>Necessaire de Viagem</h3>
+                                <p class="product-category">Necessaire</p>
+                                <p class="product-price">R$ 99,99</p>
+                                <div class="product-rating">
+                                    ⭐⭐⭐⭐⭐ <span>(27)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Seu Carrinho</h2>
+            <button class="cart-close" onclick="toggleCart()">✕</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <p class="cart-empty">Seu carrinho está vazio</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="total-price">R$ 0,00</span>
+            </div>
+            <button class="btn-primary btn-block">Finalizar Compra</button>
+            <button class="btn-outline btn-block" onclick="toggleCart()">Continuar Comprando</button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col footer-brand">
+                    <img src="assets/logo.png" alt="be Cotton" class="footer-logo">
+                    <p class="footer-tagline">Luxo e conforto<br>em cada detalhe</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Atendimento</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Trocas e Devoluções</a></li>
+                        <li><a href="#">Guia de Tamanhos</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 be Cotton. Todos os direitos reservados.</p>
+                <div class="payment-methods">
+                    <span>Aceitamos:</span>
+                    <span>💳 Visa • Mastercard • Pix • Boleto</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filters Toggle
+        function toggleFilters() {
+            const filtersContent = document.querySelector('.filters-content');
+            const filtersToggle = document.querySelector('.filters-toggle');
+            
+            filtersContent.classList.toggle('collapsed');
+            filtersToggle.classList.toggle('active');
+        }
+
+        // Cart System
+        let cart = [];
+        const products = [
+            { id: 1, name: 'Pijama Signature', price: 99.99, image: 'assets/pijama1.jpg' },
+            { id: 2, name: 'Pijama Supreme', price: 99.99, image: 'assets/pijama2.jpg' },
+            { id: 3, name: 'Pijama Luxo', price: 99.99, image: 'assets/pijama3.jpg' },
+            { id: 4, name: 'Pijama Elegance', price: 99.99, image: 'assets/pijama4.jpg' },
+            { id: 5, name: 'Pijama Premium', price: 99.99, image: 'assets/pijama5.jpg' },
+            { id: 6, name: 'Robe Deluxe', price: 99.99, image: 'assets/imagem1.jpeg' },
+            { id: 7, name: 'Pantufas Premium', price: 99.99, image: 'assets/imagem2.jpeg' },
+            { id: 8, name: 'Conjunto Completo Premium', price: 99.99, image: 'assets/pijama1.jpg' },
+            { id: 9, name: 'Necessaire de Viagem', price: 99.99, image: 'assets/imagem2.jpeg' }
+        ];
+
+        function toggleCart() {
+            const sidebar = document.getElementById('cart-sidebar');
+            const overlay = document.getElementById('cart-overlay');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+            
+            updateCart();
+            toggleCart();
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCart();
+        }
+
+        function updateQuantity(productId, change) {
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    removeFromCart(productId);
+                } else {
+                    updateCart();
+                }
+            }
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartCount = document.querySelector('.cart-count');
+            const totalPrice = document.querySelector('.total-price');
+            
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            cartCount.textContent = totalItems;
+            totalPrice.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="cart-empty">Seu carrinho está vazio</p>';
+            } else {
+                cartItems.innerHTML = cart.map(item => `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}">
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <p class="cart-item-price">R$ ${item.price.toFixed(2).replace('.', ',')}</p>
+                            <div class="cart-item-quantity">
+                                <button onclick="updateQuantity(${item.id}, -1)">-</button>
+                                <span>${item.quantity}</span>
+                                <button onclick="updateQuantity(${item.id}, 1)">+</button>
+                            </div>
+                        </div>
+                        <button class="cart-item-remove" onclick="removeFromCart(${item.id})">✕</button>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Initialize cart on page load
+        updateCart();
+
+        // Initialize filters collapsed on mobile
+        window.addEventListener('DOMContentLoaded', () => {
+            const filtersContent = document.querySelector('.filters-content');
+            if (window.innerWidth <= 768) {
+                filtersContent.classList.add('collapsed');
+            }
+            
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    filtersContent.classList.remove('collapsed');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

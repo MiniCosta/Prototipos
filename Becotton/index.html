@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="be Cotton - Pijamas Premium e Loungewear de Luxo. Conforto e sofisticação para o seu descanso.">
+    <title>be Cotton | Pijamas Premium & Loungewear de Luxo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-logo">
+                <img src="assets/logo.png" alt="be Cotton Logo" class="logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#colecao">Coleção</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="loja.html" class="btn-primary">Loja</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content container">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    Luxo que você<br>
+                    <span class="accent">veste para sonhar</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Descubra a coleção de pijamas premium que conquistou os Estados Unidos. 
+                    Tecidos <strong class="highlight">nobres</strong>, design <strong class="highlight">sofisticado</strong> e conforto <strong class="highlight">incomparável</strong>.
+                </p>
+                <div class="hero-cta">
+                    <a href="loja.html" class="btn-primary btn-large">Explorar Coleção</a>
+                </div>
+                <div class="hero-features">
+                    <div class="feature-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                        <span>Tecidos Premium</span>
+                    </div>
+                    <div class="feature-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        <span>Conforto Exclusivo</span>
+                    </div>
+                    <div class="feature-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                        <span>Qualidade Garantida</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <img src="assets/imagem1.jpeg" alt="Coleção be Cotton Premium">
+                    <div class="image-badge">
+                        <span class="badge-text">Novidade</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="colecao" class="categories">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Coleção Exclusiva</span>
+                <h2 class="section-title">Descubra Nossos <strong class="highlight">Produtos</strong></h2>
+                <p class="section-subtitle">
+                    Cada peça é <strong class="highlight">cuidadosamente selecionada</strong> para proporcionar <strong class="highlight">máximo conforto</strong> e elegância
+                </p>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="product-gallery">
+                <div class="gallery-main">
+                    <div class="gallery-card featured">
+                        <img src="assets/pijama1.jpg" alt="Pijama Premium 1">
+                        <div class="gallery-overlay">
+                            <h3>Coleção <strong class="highlight">Signature</strong></h3>
+                            <p>Elegância <strong>premium</strong></p>
+                        </div>
+                    </div>
+                    <div class="gallery-card">
+                        <img src="assets/pijama2.jpg" alt="Pijama Premium 2">
+                        <div class="gallery-overlay">
+                            <h3><strong class="highlight">Conforto</strong> Supreme</h3>
+                            <p>Design exclusivo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-secondary">
+                    <div class="gallery-card">
+                        <img src="assets/pijama3.jpg" alt="Pijama Premium 3">
+                        <div class="gallery-overlay">
+                            <h3><strong class="highlight">Luxo</strong> Moderno</h3>
+                            <p>Sofisticação única</p>
+                        </div>
+                    </div>
+                    <div class="gallery-card">
+                        <img src="assets/imagem1.jpeg" alt="Acessórios">
+                        <div class="gallery-overlay">
+                            <h3>Acessórios <strong class="highlight">Premium</strong></h3>
+                            <p>Detalhes <strong>refinados</strong></p>
+                        </div>
+                    </div>
+                    <div class="gallery-card">
+                        <img src="assets/imagem2.jpeg" alt="Pantufas Luxo">
+                        <div class="gallery-overlay">
+                            <h3>Pantufas <strong class="highlight">Deluxe</strong></h3>
+                            <p>Maciez incomparável</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carousel Section -->
+            <div class="collection-carousel">
+                <h3 class="carousel-title">Explore Nossa Coleção</h3>
+                <div class="carousel-wrapper">
+                    <button class="carousel-btn carousel-prev" onclick="moveCarousel(-1)" aria-label="Anterior">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                    
+                    <div class="carousel-container">
+                        <div class="carousel-track" id="carouselTrack">
+                            <div class="carousel-slide">
+                                <div class="carousel-item">
+                                    <img src="assets/pijama1.jpg" alt="Pijama Elegance Collection">
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="carousel-item">
+                                    <img src="assets/pijama2.jpg" alt="Pijama Premium Collection">
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="carousel-item">
+                                    <img src="assets/pijama3.jpg" alt="Pijama Luxury Collection">
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="carousel-item">
+                                    <img src="assets/pijama4.jpg" alt="Pijama Signature Collection">
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="carousel-item">
+                                    <img src="assets/pijama5.jpg" alt="Pijama Supreme Collection">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="carousel-btn carousel-next" onclick="moveCarousel(1)" aria-label="Próximo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M9 18l6-6-6-6"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3>Tecidos Premium</h3>
+                    <p>Algodão egípcio, seda e materiais sustentáveis de altíssima qualidade</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3>Design Atemporal</h3>
+                    <p>Inspirado nas tendências americanas com elegância clássica</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                    </div>
+                    <h3>Entrega Premium</h3>
+                    <p>Embalagem luxuosa e entrega garantida em todo Brasil</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>Garantia de Qualidade</h3>
+                    <p>30 dias para troca e satisfação garantida ou seu dinheiro de volta</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="assets/nossahistória.jpg" alt="Sobre be Cotton">
+                </div>
+                <div class="about-text">
+                    <span class="section-tag">Nossa História</span>
+                    <h2>Conforto e Elegância<br>em Perfeita Harmonia</h2>
+                    <p class="about-description">
+                        A be Cotton une design americano com sofisticação e conforto. Nossos pijamas premium, 
+                        desenvolvidos com tecidos nobres e acabamento impecável, conquistaram milhares de 
+                        clientes transformando momentos de descanso em experiências de luxo.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">10k+</span>
+                            <span class="stat-label">Clientes Satisfeitos</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Algodão Premium</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">4.9★</span>
+                            <span class="stat-label">Avaliação Média</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-tag">Depoimentos</span>
+                <h2 class="section-title">O Que Nossos Clientes Dizem</h2>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text">
+                        "Simplesmente o melhor pijama que já tive. A qualidade é excepcional e o 
+                        conforto é indescritível. Vale cada centavo!"
+                    </p>
+                    <div class="testimonial-author">
+                        <strong>Maria Silva</strong>
+                        <span>São Paulo, SP</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text">
+                        "Comprei para mim e para presente. Todos amaram! O tecido é macio e a costura 
+                        é perfeita. Recomendo muito!"
+                    </p>
+                    <div class="testimonial-author">
+                        <strong>João Santos</strong>
+                        <span>Rio de Janeiro, RJ</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text">
+                        "Design sofisticado e conforto incrível. Me sinto em um hotel 5 estrelas todos 
+                        os dias. A be Cotton superou minhas expectativas!"
+                    </p>
+                    <div class="testimonial-author">
+                        <strong>Ana Paula</strong>
+                        <span>Belo Horizonte, MG</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="contact-section">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-tag">Entre em Contato</span>
+                <h2 class="section-title">Fale Conosco</h2>
+                <p class="section-subtitle">
+                    Estamos aqui para ajudar. Entre em contato pelos nossos canais oficiais.
+                </p>
+            </div>
+            <div class="contact-cards">
+                <a href="https://wa.me/5511999999999" target="_blank" class="contact-card">
+                    <div class="contact-icon whatsapp">
+                        <img src="assets/imgWhats.svg" alt="WhatsApp" width="48" height="48">
+                    </div>
+                    <h3>WhatsApp</h3>
+                    <p>Atendimento rápido e personalizado</p>
+                    <span class="contact-link">Iniciar Conversa →</span>
+                </a>
+                <a href="https://www.instagram.com/becottonsleepwear/" target="_blank" class="contact-card">
+                    <div class="contact-icon instagram">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.266.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12c0-3.403 2.759-6.162 6.162-6.162s6.162 2.759 6.162 6.162c0 3.403-2.759 6.162-6.162 6.162s-6.162-2.759-6.162-6.162zm2.889 0c0 1.821 1.452 3.273 3.273 3.273s3.273-1.452 3.273-3.273c0-1.821-1.452-3.273-3.273-3.273s-3.273 1.452-3.273 3.273zm10.287-6.5c0 .795.645 1.44 1.44 1.44s1.44-.645 1.44-1.44-.645-1.44-1.44-1.44-1.44.645-1.44 1.44z"/>
+                        </svg>
+                    </div>
+                    <h3>Instagram</h3>
+                    <p>Novidades e lançamentos exclusivos</p>
+                    <span class="contact-link">Seguir @becottonsleepwear →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <img src="assets/logo.png" alt="be Cotton Logo" class="footer-logo">
+                    <div class="footer-social">
+                        <a href="https://wa.me/5511999999999" target="_blank" aria-label="WhatsApp">
+                            <img src="assets/imgWhats.svg" alt="WhatsApp" width="32" height="32">
+                        </a>
+                        <a href="https://www.instagram.com/becottonsleepwear/" target="_blank" aria-label="Instagram be Cotton">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.266.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12c0-3.403 2.759-6.162 6.162-6.162s6.162 2.759 6.162 6.162c0 3.403-2.759 6.162-6.162 6.162s-6.162-2.759-6.162-6.162zm2.889 0c0 1.821 1.452 3.273 3.273 3.273s3.273-1.452 3.273-3.273c0-1.821-1.452-3.273-3.273-3.273s-3.273 1.452-3.273 3.273zm10.287-6.5c0 .795.645 1.44 1.44 1.44s1.44-.645 1.44-1.44-.645-1.44-1.44-1.44-1.44.645-1.44 1.44z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Atendimento</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Trocas e Devoluções</a></li>
+                        <li><a href="#">Guia de Tamanhos</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 be Cotton. Todos os direitos reservados.</p>
+                <div class="payment-methods">
+                    <span>Aceitamos:</span>
+                    <span>💳 Visa • Mastercard • Pix • Boleto</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Carousel System
+        let currentSlide = 0;
+        let slidesPerView = 3;
+        let totalSlides = 5;
+        
+        function updateSlidesPerView() {
+            if (window.innerWidth <= 768) {
+                slidesPerView = 1;
+            } else if (window.innerWidth <= 1024) {
+                slidesPerView = 2;
+            } else {
+                slidesPerView = 3;
+            }
+        }
+        
+        function updateCarousel() {
+            const track = document.getElementById('carouselTrack');
+            const slideWidth = 100 / slidesPerView;
+            const maxSlide = totalSlides - slidesPerView;
+            
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide > maxSlide) currentSlide = maxSlide;
+            
+            const translateX = -(currentSlide * slideWidth);
+            track.style.transform = `translateX(${translateX}%)`;
+            
+            updateDots();
+            updateButtons();
+        }
+        
+        function moveCarousel(direction) {
+            currentSlide += direction;
+            updateCarousel();
+        }
+        
+        function updateDots() {
+            const dotsContainer = document.getElementById('carouselDots');
+            const maxSlide = totalSlides - slidesPerView;
+            dotsContainer.innerHTML = '';
+            
+            for (let i = 0; i <= maxSlide; i++) {
+                const dot = document.createElement('button');
+                dot.className = 'carousel-dot' + (i === currentSlide ? ' active' : '');
+                dot.onclick = () => {
+                    currentSlide = i;
+                    updateCarousel();
+                };
+                dot.setAttribute('aria-label', `Ir para slide ${i + 1}`);
+                dotsContainer.appendChild(dot);
+            }
+        }
+        
+        function updateButtons() {
+            const prevBtn = document.querySelector('.carousel-prev');
+            const nextBtn = document.querySelector('.carousel-next');
+            const maxSlide = totalSlides - slidesPerView;
+            
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide >= maxSlide;
+        }
+        
+        // Initialize carousel
+        window.addEventListener('DOMContentLoaded', () => {
+            updateSlidesPerView();
+            updateCarousel();
+        });
+        
+        window.addEventListener('resize', () => {
+            updateSlidesPerView();
+            currentSlide = 0;
+            updateCarousel();
+        });
+        
+        // Touch/Swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        const carouselContainer = document.querySelector('.carousel-container');
+        
+        carouselContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        carouselContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                moveCarousel(1);
+            }
+            if (touchEndX > touchStartX + 50) {
+                moveCarousel(-1);
+            }
+        }
+    </script>
+</body>
+</html>
