@@ -404,7 +404,7 @@ p {
     align-items: center;
     position: relative;
     background: var(--color-secondary);
-    scroll-margin-top: 80px;
+    scroll-margin-top: 0px;
 }
 
 .hero-content {
@@ -517,7 +517,7 @@ p {
 .categories {
     padding: 3rem 0;
     background: linear-gradient(180deg, #F6F3EF 0%, rgba(140, 166, 122, 0.05) 100%);
-    scroll-margin-top: 100px;
+    scroll-margin-top: 0px;
 }
 
 /* Product Gallery */
@@ -905,7 +905,7 @@ p {
 .about {
     padding: 3rem 0;
     background: linear-gradient(135deg, rgba(212, 187, 155, 0.1) 0%, #F6F3EF 100%);
-    scroll-margin-top: 140px;
+    scroll-margin-top: 0px;
 }
 
 .about-content {
@@ -1052,7 +1052,7 @@ p {
 .contact-section {
     padding: 3rem 0;
     background: var(--color-secondary);
-    scroll-margin-top: 100px;
+    scroll-margin-top: 0px;
 }
 
 .contact-cards {
