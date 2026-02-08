@@ -621,17 +621,26 @@ p {
 .carousel-container {
     overflow: hidden;
     border-radius: var(--radius-lg);
+    width: 100%;
 }
 
 .carousel-track {
     display: flex;
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     gap: 2rem;
+    will-change: transform;
+}
+
+.carousel-track.transitioning .carousel-item {
+    pointer-events: none;
 }
 
 .carousel-slide {
     flex: 0 0 calc(33.333% - 1.333rem);
     min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .carousel-item {
@@ -641,7 +650,9 @@ p {
     background: var(--color-white);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    aspect-ratio: 3/4;
+    width: 100%;
+    height: 0;
+    padding-bottom: 133.33%;
 }
 
 .carousel-item:hover {
@@ -649,10 +660,22 @@ p {
     box-shadow: 0 12px 40px rgba(72, 88, 69, 0.25);
 }
 
+/* Desabilitar hover em dispositivos touch */
+@media (hover: none) {
+    .carousel-item:hover {
+        transform: none;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+}
+
 .carousel-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     display: block;
 }
 
@@ -737,6 +760,10 @@ p {
     .carousel-track {
         gap: 2rem;
     }
+    
+    .carousel-item {
+        padding-bottom: 133.33%;
+    }
 }
 
 /* Carousel Mobile */
@@ -755,7 +782,15 @@ p {
     }
     
     .carousel-track {
-        gap: 1.5rem;
+        gap: 0;
+    }
+    
+    .carousel-item {
+        padding-bottom: 133.33%;
+    }
+    
+    .carousel-item:hover {
+        transform: none;
     }
     
     .carousel-btn {

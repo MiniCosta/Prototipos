@@ -439,14 +439,28 @@
         
         function updateCarousel() {
             const track = document.getElementById('carouselTrack');
-            const slideWidth = 100 / slidesPerView;
+            const container = document.querySelector('.carousel-container');
+            const slides = document.querySelectorAll('.carousel-slide');
             const maxSlide = totalSlides - slidesPerView;
             
             if (currentSlide < 0) currentSlide = 0;
             if (currentSlide > maxSlide) currentSlide = maxSlide;
             
-            const translateX = -(currentSlide * slideWidth);
-            track.style.transform = `translateX(${translateX}%)`;
+            // Adicionar classe transitioning
+            track.classList.add('transitioning');
+            
+            // Calcular o offset baseado no tamanho real dos slides
+            if (slides.length > 0) {
+                const slideWidth = slides[0].offsetWidth;
+                const gap = window.innerWidth <= 768 ? 0 : 32; // 2rem = 32px
+                const offset = currentSlide * (slideWidth + gap);
+                track.style.transform = `translateX(-${offset}px)`;
+            }
+            
+            // Remover classe transitioning após a animação
+            setTimeout(() => {
+                track.classList.remove('transitioning');
+            }, 500);
             
             updateDots();
             updateButtons();
@@ -487,12 +501,44 @@
         window.addEventListener('DOMContentLoaded', () => {
             updateSlidesPerView();
             updateCarousel();
+            
+            // Recalcular após todas as imagens carregarem
+            const carouselImages = document.querySelectorAll('.carousel-item img');
+            let loadedImages = 0;
+            
+            carouselImages.forEach(img => {
+                if (img.complete) {
+                    loadedImages++;
+                } else {
+                    img.addEventListener('load', () => {
+                        loadedImages++;
+                        if (loadedImages === carouselImages.length) {
+                            updateCarousel();
+                        }
+                    });
+                }
+            });
+            
+            // Recalcular após um pequeno delay se todas já estiverem carregadas
+            if (loadedImages === carouselImages.length) {
+                setTimeout(() => updateCarousel(), 100);
+            }
         });
         
+        let resizeTimeout;
         window.addEventListener('resize', () => {
-            updateSlidesPerView();
-            currentSlide = 0;
-            updateCarousel();
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                const oldSlidesPerView = slidesPerView;
+                updateSlidesPerView();
+                
+                // Ajustar currentSlide se o número de slides por view mudou
+                if (oldSlidesPerView !== slidesPerView) {
+                    currentSlide = 0;
+                }
+                
+                updateCarousel();
+            }, 100);
         });
         
         // Touch/Swipe support
