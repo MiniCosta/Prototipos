@@ -1,0 +1,211 @@
+┌─────────────────────────────────────────────────────────────┐
+│  ✅ CHECKLIST DE DEPLOY - PHT.co                           │
+└─────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════
+📋 FASE 1: PREPARAÇÃO (5 min)
+═══════════════════════════════════════════════════════════════
+
+□ 1. Teste local do blog
+   cd blog
+   npm install
+   npm run build
+   npm run dev
+   → Acesse http://localhost:3000 e verifique
+
+□ 2. Verifique arquivos essenciais
+   ✓ blog/.gitignore existe
+   ✓ blog/vercel.json existe  
+   ✓ blog/.env.example existe
+   ✓ blog/DEPLOY.md existe
+   ✓ README.md na raiz existe
+
+═══════════════════════════════════════════════════════════════
+🐙 FASE 2: GITHUB (10 min)
+═══════════════════════════════════════════════════════════════
+
+□ 3. Crie conta no GitHub (se não tiver)
+   → https://github.com/signup
+
+□ 4. Inicialize Git no projeto
+   cd "C:\Users\Paulo\Desktop\include-projetos\Protótipos\PHT.co"
+   git init
+   git add .
+   git commit -m "Initial commit: PHT site + blog Next.js"
+
+□ 5. Crie repositório no GitHub
+   → https://github.com/new
+   Nome: pht-site (ou outro)
+   ⚠️ NÃO marque "Initialize with README"
+
+□ 6. Conecte e envie código
+   git remote add origin https://github.com/SEU-USUARIO/pht-site.git
+   git branch -M main
+   git push -u origin main
+
+□ 7. Verifique no GitHub
+   → Acesse https://github.com/SEU-USUARIO/pht-site
+   ✓ Arquivos visíveis
+   ✓ Pasta "blog" presente
+
+═══════════════════════════════════════════════════════════════
+🚀 FASE 3: VERCEL DEPLOY (10 min)
+═══════════════════════════════════════════════════════════════
+
+□ 8. Crie conta na Vercel
+   → https://vercel.com/signup
+   ✅ Use "Continue with GitHub" (mais fácil)
+
+□ 9. Importe projeto
+   Dashboard → Add New... → Project
+   → Selecione repositório "pht-site"
+   → Click "Import"
+
+□ 10. Configure projeto
+   ⚠️ IMPORTANTE - Configure exatamente assim:
+   
+   Framework Preset: Next.js
+   Root Directory: blog          ← CRITICAL!
+   Build Command: npm run build  (já preenchido)
+   Output Directory: .next       (já preenchido)
+   Install Command: npm install  (já preenchido)
+
+□ 11. Adicione Environment Variables
+   Click "Environment Variables" antes de Deploy:
+   
+   NEXT_PUBLIC_MAIN_SITE_URL
+   Value: https://seudominio.com
+   
+   NEXT_PUBLIC_BLOG_URL  
+   Value: https://seu-projeto.vercel.app
+   
+   ⚠️ Depois você ajusta esses valores com domínio real
+
+□ 12. Deploy!
+   → Click em "Deploy"
+   → Aguarde ~2 minutos
+   → ✅ Deve mostrar "Congratulations!"
+
+□ 13. Teste o blog
+   → Click em "Visit" ou copie URL
+   → Formato: https://pht-site-xxxxx.vercel.app
+   → Verifique se blog carrega corretamente
+
+═══════════════════════════════════════════════════════════════
+🔗 FASE 4: CONECTAR SITE E BLOG (5 min)
+═══════════════════════════════════════════════════════════════
+
+□ 14. Atualize link no site HTML
+   Abra: PHT.co/index.html
+   
+   Encontre linha ~12:
+   const BLOG_URL = 'http://localhost:3000/blog';
+   
+   Mude para:
+   const BLOG_URL = 'https://seu-projeto.vercel.app/blog';
+   
+   Salve arquivo
+
+□ 15. Commit e push da mudança
+   git add index.html
+   git commit -m "Update blog link to Vercel production URL"
+   git push
+
+□ 16. Aguarde deploy automático
+   → Vercel Dashboard → Deployments
+   → Aguarde novo deploy (~1min)
+   → Status: "Ready"
+
+□ 17. Teste integração final
+   ✓ Abra index.html (Live Server)
+   ✓ Click no link "BLOG" na navbar
+   ✓ Deve abrir blog na Vercel
+   ✓ No blog, click "← Voltar ao site"
+   ✓ Deve voltar para site principal
+
+═══════════════════════════════════════════════════════════════
+🌐 FASE 5: DOMÍNIO PERSONALIZADO (Opcional - 15 min)
+═══════════════════════════════════════════════════════════════
+
+□ 18. Configure domínio no Vercel
+   Project Settings → Domains
+   → Add Domain
+   → Digite: blog.seudominio.com
+   → Vercel mostra instruções DNS
+
+□ 19. Configure DNS no seu provedor
+   Type: CNAME
+   Name: blog
+   Value: cname.vercel-dns.com
+   
+   → Salve e aguarde propagação (15min-2h)
+
+□ 20. Atualize variáveis de ambiente
+   Settings → Environment Variables
+   
+   NEXT_PUBLIC_BLOG_URL
+   → Mude para: https://blog.seudominio.com
+   
+   Redeploy: Deployments → ⋯ → Redeploy
+
+□ 21. Atualize index.html novamente
+   const BLOG_URL = 'https://blog.seudominio.com/blog';
+   
+   git add index.html
+   git commit -m "Update to custom domain"
+   git push
+
+═══════════════════════════════════════════════════════════════
+✅ DEPLOY COMPLETO!
+═══════════════════════════════════════════════════════════════
+
+🎉 Parabéns! Seu setup CI/CD está ativo!
+
+WORKFLOW DIÁRIO:
+1. Faça mudanças locais
+2. git add . && git commit -m "mensagem"
+3. git push
+4. ✨ Deploy automático em ~1min!
+
+URLS IMPORTANTES:
+📊 Vercel Dashboard: https://vercel.com/dashboard
+🐙 GitHub Repo: https://github.com/seu-usuario/pht-site
+🌐 Blog Produção: https://seu-projeto.vercel.app
+
+PRÓXIMOS PASSOS:
+• Adicione mais posts em blog/content/posts/
+• Configure Google Analytics
+• Adicione sitemap.xml para SEO
+• Configure domínio personalizado
+• Monitore performance no Vercel Analytics
+
+═══════════════════════════════════════════════════════════════
+📚 DOCUMENTAÇÃO
+═══════════════════════════════════════════════════════════════
+
+→ Guia Rápido: blog/QUICK-START.md
+→ Guia Completo: blog/DEPLOY.md
+→ Overview Geral: README.md
+
+═══════════════════════════════════════════════════════════════
+🆘 PROBLEMAS COMUNS
+═══════════════════════════════════════════════════════════════
+
+❌ "Root directory não encontrado"
+   → Settings → General → Root Directory: blog
+
+❌ Build falha com erro de módulo
+   → Teste: cd blog && npm run build
+   → Verifique package.json
+
+❌ Links não funcionam
+   → Verifique variáveis de ambiente no Vercel
+   → Redeploy após adicionar variáveis
+
+❌ Mudanças não aparecem
+   → Hard refresh: Ctrl+Shift+R
+   → Verifique se build terminou no Dashboard
+
+═══════════════════════════════════════════════════════════════
+
+Dúvidas? Consulte DEPLOY.md para explicações detalhadas!
